@@ -1,33 +1,37 @@
 def countingSort(input):
-    # Find the maximum element in the inputArray
-    maxKey= max(input, key=input.get)
+   
+    maxKey= max(input, key=lambda item:item[0])[0]
     
-    bookeepingLength = maxElement+1
+    bookeepingLength = maxKey+1
+    bookeeping = [0] * bookeepingLength
 
-    # Initialize the countArray with (max+1) zeros
-     bookeeping = [0] * bookeepingLength
+    # Count keys frequency
+    for item in input: 
+        bookeeping[item[0]] += 1
 
-    # Step 1 -> Traverse the inputArray and increase 
-    # the corresponding count for every element by 1
-    for el in inputArray: 
-        countArray[el] += 1
+    # at the end each element is the index 
+    # of the last element with that key
+    for i in range(1, bookeepingLength):
+        bookeeping[i] += bookeeping[i-1] 
 
-    # Step 2 -> For each element in the countArray, 
-    # sum up its value with the value of the previous 
-    # element, and then store that value 
-    # as the value of the current element
-    for i in range(1, countArrayLength):
-        countArray[i] += countArray[i-1] 
+    output = [0] * len(input)
 
-    # Step 3 -> Calculate element position
-    # based on the countArray values
-    outputArray = [0] * len(inputArray)
-    i = len(inputArray) - 1
+    # build sorted output iterating backward
+    i = len(input) - 1
     while i >= 0:
-        currentEl = inputArray[i]
-        countArray[currentEl] -= 1
-        newPosition = countArray[currentEl]
-        outputArray[newPosition] = currentEl
+        item = input[i]
+        bookeeping[item[0]] -= 1
+        position = bookeeping[item[0]]
+        output[position] = item
         i -= 1
 
-    return outputArray
+    return output
+
+def main():
+    print("Counting Sort Test")
+    input = [(1, "a"), (1, "b"), (2, "c"), (4, "d"), (3, "e"), (0, "f"), (1, "g"), (2, "h"), (3, "i"), (1, "l")]
+    print(input)
+    output = countingSort(input)
+    print(output)
+
+main()
