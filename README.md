@@ -4,7 +4,7 @@ Database of well known algorithms.
 
 Algorithms are implemented in different programming languages: c++, C#, Python.
 
-Algorithms are divide in categories:
+Algorithms are divided in categories:
 
 - sorting
 - math
