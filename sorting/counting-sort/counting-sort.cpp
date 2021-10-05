@@ -43,7 +43,6 @@ vector<pair<int, string>> CountingSort(vector<pair<int, string>>& items) {
     vector<pair<int, string>> output(items.size());
     for (const auto& item : items) output[next_index[item.first]++] = item;
 
-    copy(output.begin(), output.end(), items.begin());
     return output;
 }
 */
