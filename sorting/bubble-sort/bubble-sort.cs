@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Algorithms
 {
-    class BubbleSort {
+    class Sort {
 
         public static int[] BubbleSort(int[] input)
         {
@@ -38,7 +38,7 @@ namespace Algorithms
                 Console.WriteLine(num);
             }
             
-            var output = CountingSort(input);
+            var output = BubbleSort(input);
 
             Console.WriteLine("Output");
             foreach (var num in output) {

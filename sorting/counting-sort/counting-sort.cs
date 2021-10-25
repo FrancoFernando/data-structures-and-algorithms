@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Algorithms
 {
-    class CountingSort {
+    class Sort {
 
         private static int[] PartialSum(int[] input)
         {
