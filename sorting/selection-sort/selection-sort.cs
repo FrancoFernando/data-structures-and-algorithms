@@ -1,20 +1,18 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace Algorithms
+namespace Algorithms.Sorters
 {
-    class Sort
+    class SelectionSorter
     {
-        public static int[] SelectionSort(int[] input)
+        public static T[] Sort<T>(T[] input) where T : IComparable<T>
         {
-            for (int i = 0; i < input.Length-1; ++i)
+            for (int i = 0; i < input.Length - 1; ++i)
             {
                 int smallest_index = i;
 
                 for (int j = i + 1; j < input.Length; ++j)
                 {
-                    if (input[j] < input[smallest_index])
+                    if (input[j].CompareTo(input[smallest_index]) < 0)
                     {
                         smallest_index = j;
                     }
@@ -36,7 +34,7 @@ namespace Algorithms
                 Console.WriteLine(num);
             }
 
-            var output = SelectionSort(input);
+            var output = Sort<int>(input);
 
             Console.WriteLine("Output");
             foreach (var num in output)
