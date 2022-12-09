@@ -93,3 +93,32 @@ B' [i] corresponds to the sorted position (plus 1) of the last input element wit
 To get a sorted output array, it's now possible to iterate backward over the input array and use each key as an index for B' to get its sorted position.
 
 Before copying the input element having key i in its sorted position B'[i], B'[i] is decreased. This keeps the invariant that B'[i] represents the sorted position (plus 1) of the last remaining input element having key i.
+
+
+Coding challenge
+
+The coding challenge of last week was H-Index. The problem gives as input an array of N integers representing the number of citations that an academic paper received. The goal is to find the higher index h in the range [0, N] so that there are h papers with citations >= h and N-h papers with citations <= h.
+
+The brute force solution is not difficult to find. The idea is to iterate an index j backward from h to 0 and check if there are at least j citations >= j. The h-index is the first j for which the condition is verified. The time complexity is O(N^2).
+
+Finding a better solution is more elaborate. A helpful observation is that once the citations are sorted in reverse order, the h-index is that index j dividing the array into 2 parts:
+
+a first part where all elements are >= j
+
+a second part where all elements are <= j
+
+So if S is the reversed sorted array of citations, the h-index is the first j for which S[j] is not greater than j. For example, if the citations are [3,0,6,1,5], then the index j = 3 divides S = [6,5,3,1,0] in two parts: [6,5,3] having all elements >= 3 and [1,0] having all elements <=3.
+
+This solution has a time complexity of O(NlogN) because of the sorting step.
+
+An even better solution can be obtained using a non-comparison-based sorting algorithm like Counting Sort. The critical observations are:
+
+the possible indexes are in the range [0, N]
+
+any citation larger than N can be counted as N without affecting the h-index
+
+Using counting sort to implement the sorting step, the time complexity of the previous solution is reduced to O(N).
+
+But actually is not even necessary to sort the citations because it’s possible to directly use the citations’ frequencies. If R is the reversed cumulative sum of the citation frequencies, then R[j] represents the number of papers having more than j citations. Consequently, iterating R backward, the h-index is the first index for which R[j] is greater or equal to j. For example, if the citations are [3,0,6,1,5], then the frequencies are [1,1,0,1,0,2] and R = [5,4,3,3,2,2]. The first index for which R[j] >= j is 3.
+
+
