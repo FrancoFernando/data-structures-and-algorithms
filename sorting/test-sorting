@@ -1,0 +1,30 @@
+import unittest
+import random
+
+from ..sorting import bubble_sort
+from ..sorting import selection_sort
+from ..sorting import insertion_sort
+
+
+class TestSortingFunctions(unittest.TestCase):
+    
+    def setUp(self):
+        self.arr = self.generate_random_array(10)
+    
+    def generate_random_array(self, length):
+        return [random.randint(0, 100) for _ in range(length)]
+    
+    def test_bubble_sort(self):
+        bubble_sort(self.arr)
+        self.assertEqual(self.arr, sorted(self.arr))
+        
+    def test_selection_sort(self):
+        selection_sort(self.arr)
+        self.assertEqual(self.arr, sorted(self.arr))
+        
+    def test_insertion_sort(self):
+        insertion_sort(self.arr)
+        self.assertEqual(self.arr, sorted(self.arr))
+        
+if __name__ == '__main__':
+    unittest.main()

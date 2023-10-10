@@ -1,7 +1,7 @@
 # algorithms
-Database of well known algorithms.
+Database of well known algorithms and data structures implemented in Python.
 
-Algorithms are implemented in different programming languages: c++, C#, Python.
+Algorithms are implemented for learning and didactical purposes.
 
 Algorithms are divided in categories:
 

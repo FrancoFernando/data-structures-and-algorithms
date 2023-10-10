@@ -1,3 +1,5 @@
+import unittest
+
 def bubble_sort(input):
 
     has_swapped = True
@@ -12,11 +14,8 @@ def bubble_sort(input):
         iterations += 1
     return input
 
-def main():
-    print("Bubble Sort Test")
-    input = [7,3,2,4,6]
-    print(input)
-    output = bubble_sort(input)
-    print(output)
-
-main()
+class TestBubbleSort(unittest.TestCase):
+    def test_random(self):
+        input = [7,3,2,4,6]
+        output = bubble_sort(input)
+        self.assertEqual(output, [2,3,4,6,7])
