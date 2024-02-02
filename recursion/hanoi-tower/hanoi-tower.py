@@ -1,6 +1,8 @@
 class Peg:
+	
     name = ""
     disks = []
+	
     def __init__(self, _name, _size):
         self.name = _name
         self.disks = [i for i in range(_size, 0, -1)]
@@ -25,6 +27,7 @@ def HanoiTowers(height, src, dst, tmp):
         HanoiTowers(height-1, tmp, dst, src)
 
 def main():
-	n_disks = 5
+	
+    n_disks = 5
     pegs = [Peg("A",n_disks),Peg("B",0),Peg("C",0)]
     HanoiTowers(n_disks, pegs[0], pegs[1], pegs[2])
