@@ -3,7 +3,7 @@ import unittest
 class MaxHeap:
 
     def __init__(self):
-        self.array = [None]
+        self.array = []
         self.length = 0
 
     def __str__(self):
