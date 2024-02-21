@@ -1,5 +1,15 @@
 import unittest
 
+"""
+A small note about heap indexing:
+
+                  root at 0       root at 1
+
+Left child        index*2 + 1     index*2
+Right child       index*2 + 2     index*2 + 1
+Parent            (index-1)/2     index/2
+"""
+
 class MaxHeap:
 
     def __init__(self):
@@ -10,12 +20,14 @@ class MaxHeap:
         return ' '.join([str(i) for i in self.queue])
 
     def build_max_heap(self, array):
+        """Builds a max heap from the given array."""
         self.array = array
         self.length = len(array)
         for i in range((self.length-1) // 2, -1, -1):
             self.max_heapify(i)
     
     def max_heapify(self, i):
+        """Heapifies the subtree rooted at index i."""
         left = 2 * i + 1
         right = 2 * i + 2
         largest = i
@@ -28,6 +40,7 @@ class MaxHeap:
             self.max_heapify(largest)
 
     def insert(self, value):
+        """Inser a value."""
         self.array.append(value)
         self.length += 1
         i = len(self.array) - 1
@@ -36,6 +49,7 @@ class MaxHeap:
             i = (i-1) // 2
 
     def extract_max(self):
+        """Extract the maximum value."""
         if self.length < 1:
             return None
         max_value = self.array[0]
