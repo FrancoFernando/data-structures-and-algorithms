@@ -11,6 +11,7 @@ namespace Sorting
         public static void Main()
         {
             RunAlgorithm(new SelectionSort<int>());
+            RunAlgorithm(new MergeSort<int>());
         }
 
         private static void RunAlgorithm(ISortingAlgorithm<int> algo)
@@ -18,7 +19,7 @@ namespace Sorting
             FillArray();
             Console.WriteLine("Unsorted array:");
             PrintArray();
-            Console.WriteLine("Run Selection Sort:");
+            Console.WriteLine("Run Algorithm:");
             algo.Sort(arr);
             Console.WriteLine("Sorted array:");
             PrintArray();
