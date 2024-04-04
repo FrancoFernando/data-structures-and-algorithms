@@ -1,4 +1,5 @@
-﻿using Algorithms.Sorting;
+﻿using System.Xml;
+using Algorithms.Sorting;
 
 namespace Sorting
 {
@@ -10,11 +11,29 @@ namespace Sorting
 
         public static void Main()
         {
+            RunIntegerAlgorithm(new CountingSort<string>());
             RunAlgorithm(new SelectionSort<int>());
             RunAlgorithm(new MergeSort<int>());
         }
 
-        private static void RunAlgorithm(ISortingAlgorithm<int> algo)
+        private static void RunIntegerAlgorithm(IIntegerSorting<string> algo)
+        {
+            (int key, string val)[] intArr = {(5,"one"), (3,"two"), (4,"three"), (5,"four"), (5,"five")};
+            Console.WriteLine("Unsorted array:");
+            foreach (var item in intArr)
+            {
+                Console.WriteLine(item.key + " " + item.val);
+            }
+            Console.WriteLine("Run Algorithm:");
+            var output = algo.Sort(intArr);
+            Console.WriteLine("Sorted array:");
+            foreach (var item in output)
+            {
+                Console.WriteLine(item.key + " " + item.val);
+            }
+        }
+
+        private static void RunAlgorithm(IComparisonSorting<int> algo)
         {
             FillArray();
             Console.WriteLine("Unsorted array:");
@@ -26,6 +45,14 @@ namespace Sorting
         }
 
         private static void PrintArray()
+        {
+            foreach (var item in arr)
+            {
+                Console.WriteLine(item + " ");
+            }
+        }
+
+        private static void PrintIntArray()
         {
             foreach (var item in arr)
             {

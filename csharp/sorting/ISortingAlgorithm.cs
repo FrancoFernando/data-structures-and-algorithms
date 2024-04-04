@@ -1,6 +1,6 @@
 ﻿namespace Sorting
 {
-    public interface ISortingAlgorithm<T>
+    public interface IComparisonSorting<T>
     {
         void Sort(T[] array);
     }

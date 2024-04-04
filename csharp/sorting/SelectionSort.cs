@@ -2,7 +2,7 @@
 
 namespace Algorithms.Sorting
 {
-    public class SelectionSort<T> : ISortingAlgorithm<T> where T : IComparable<T>
+    public class SelectionSort<T> : IComparisonSorting<T> where T : IComparable<T>
     {
         public void Sort(T[] arr)
         {
