@@ -7,6 +7,7 @@ namespace Sorting
     {
         private const int n = 15;
         private static int[] arr = new int[n];
+        private static (int key, string val)[] intArr = new (int key, string val)[n];
         private static Random generator = new Random(-1);
 
         public static void Main()
@@ -18,19 +19,13 @@ namespace Sorting
 
         private static void RunIntegerAlgorithm(IIntegerSorting<string> algo)
         {
-            (int key, string val)[] intArr = {(5,"one"), (3,"two"), (4,"three"), (5,"four"), (5,"five")};
+            IntegerSortingHelper.FillArray(intArr);
             Console.WriteLine("Unsorted array:");
-            foreach (var item in intArr)
-            {
-                Console.WriteLine(item.key + " " + item.val);
-            }
+            IntegerSortingHelper.PrintArray(intArr);
             Console.WriteLine("Run Algorithm:");
-            var output = algo.Sort(intArr);
+            intArr = algo.Sort(intArr);
             Console.WriteLine("Sorted array:");
-            foreach (var item in output)
-            {
-                Console.WriteLine(item.key + " " + item.val);
-            }
+            IntegerSortingHelper.PrintArray(intArr);
         }
 
         private static void RunAlgorithm(IComparisonSorting<int> algo)
