@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Sorting;
-
-namespace Algorithms.Sorting
+﻿namespace Algorithms.Sorting
 {
     public class MergeSort<T> : IComparisonSorting<T> where T : IComparable<T>
     {

@@ -1,4 +1,4 @@
-﻿namespace Sorting
+﻿namespace Algorithms.Sorting
 {
     public interface IIntegerSorting<T>
     {

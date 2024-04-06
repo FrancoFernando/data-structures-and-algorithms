@@ -1,7 +1,4 @@
-﻿using System.Xml;
-using Algorithms.Sorting;
-
-namespace Sorting
+﻿namespace Algorithms.Sorting.Tests
 {
     public class Program
     {

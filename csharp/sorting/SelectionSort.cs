@@ -1,6 +1,4 @@
-﻿using Sorting;
-
-namespace Algorithms.Sorting
+﻿namespace Algorithms.Sorting
 {
     public class SelectionSort<T> : IComparisonSorting<T> where T : IComparable<T>
     {

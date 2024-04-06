@@ -1,4 +1,4 @@
-﻿namespace Sorting
+﻿namespace Algorithms.Sorting.Tests
 {
     public static class SortingHelper
     {

@@ -1,7 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using Sorting;
-
-namespace Algorithms.Sorting
+﻿namespace Algorithms.Sorting
 {
     public class CountingSort<T> : IIntegerSorting<T>
     {
