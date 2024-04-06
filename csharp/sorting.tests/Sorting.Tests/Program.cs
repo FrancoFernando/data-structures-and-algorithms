@@ -8,7 +8,6 @@ namespace Sorting
         private const int n = 15;
         private static int[] arr = new int[n];
         private static (int key, string val)[] intArr = new (int key, string val)[n];
-        private static Random generator = new Random(-1);
 
         public static void Main()
         {
@@ -19,48 +18,24 @@ namespace Sorting
 
         private static void RunIntegerAlgorithm(IIntegerSorting<string> algo)
         {
-            IntegerSortingHelper.FillArray(intArr);
+            SortingHelper.FillArray(intArr);
             Console.WriteLine("Unsorted array:");
-            IntegerSortingHelper.PrintArray(intArr);
+            SortingHelper.PrintArray(intArr);
             Console.WriteLine("Run Algorithm:");
             intArr = algo.Sort(intArr);
             Console.WriteLine("Sorted array:");
-            IntegerSortingHelper.PrintArray(intArr);
+            SortingHelper.PrintArray(intArr);
         }
 
         private static void RunAlgorithm(IComparisonSorting<int> algo)
         {
-            FillArray();
+            SortingHelper.FillArray(arr);
             Console.WriteLine("Unsorted array:");
-            PrintArray();
+            SortingHelper.PrintArray(arr);
             Console.WriteLine("Run Algorithm:");
             algo.Sort(arr);
             Console.WriteLine("Sorted array:");
-            PrintArray();
-        }
-
-        private static void PrintArray()
-        {
-            foreach (var item in arr)
-            {
-                Console.WriteLine(item + " ");
-            }
-        }
-
-        private static void PrintIntArray()
-        {
-            foreach (var item in arr)
-            {
-                Console.WriteLine(item + " ");
-            }
-        }
-
-        private static void FillArray()
-        {
-            for (var i = 0; i < n; i++)
-            {
-                arr[i] = generator.Next(-1_000, 1_000);
-            }
+            SortingHelper.PrintArray(arr);
         }
     }
 }

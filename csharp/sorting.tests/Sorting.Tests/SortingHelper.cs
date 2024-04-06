@@ -1,8 +1,8 @@
 ﻿namespace Sorting
 {
-    public static class IntegerSortingHelper
+    public static class SortingHelper
     {
-        private static Random generator = new Random(-1);
+        private static Random generator = new Random();
         private const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         public static void FillArray((int key, string val)[] arr)
         {
@@ -15,6 +15,22 @@
                     stringChars[j] = chars[generator.Next(chars.Length)];
                 }
                 arr[i] = (generator.Next(1000), new String(stringChars));
+            }
+        }
+
+        public static void FillArray(int[] arr)
+        {
+            for (var i = 0; i < arr.Length; i++)
+            {
+                arr[i] = generator.Next(-1_000, 1_000);
+            }
+        }
+
+        public static void PrintArray(int[] arr)
+        {
+            foreach (var item in arr)
+            {
+                Console.WriteLine(item + " ");
             }
         }
 
