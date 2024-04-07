@@ -8,6 +8,7 @@
 
         public static void Main()
         {
+            RunAlgorithm(new QuickSort<int>());
             RunIntegerAlgorithm(new CountingSort<string>());
             RunAlgorithm(new SelectionSort<int>());
             RunAlgorithm(new MergeSort<int>());
