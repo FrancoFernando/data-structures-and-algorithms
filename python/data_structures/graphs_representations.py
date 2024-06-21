@@ -31,18 +31,19 @@ class Graph:
         print("Edge List:")
         print(self.edge_list)
 
-# Create a graph with 5 vertices
-graph = Graph(5)
+if __name__ == "__main__":
+    # Create a graph with 5 vertices
+    graph = Graph(5)
 
-# Add some edges
-graph.add_edge(0, 1)
-graph.add_edge(0, 4)
-graph.add_edge(1, 2)
-graph.add_edge(1, 3)
-graph.add_edge(2, 3)
-graph.add_edge(3, 4)
+    # Add some edges
+    graph.add_edge(0, 1)
+    graph.add_edge(0, 4)
+    graph.add_edge(1, 2)
+    graph.add_edge(1, 3)
+    graph.add_edge(2, 3)
+    graph.add_edge(3, 4)
 
-# Display the graph representations
-graph.display_adjacency_matrix()
-graph.display_adjacency_list()
-graph.display_edge_list()
+    # Display the graph representations
+    graph.display_adjacency_matrix()
+    graph.display_adjacency_list()
+    graph.display_edge_list()
